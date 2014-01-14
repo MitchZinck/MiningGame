@@ -1,0 +1,157 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:padding="6dip" >
+
+    <Button
+        android:id="@+id/buySteve"
+        android:layout_width="40dp"
+        android:layout_height="25dp"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/PickAxe"
+        android:onClick="buy"
+        android:text="Buy"
+        android:textSize="8dp" />
+
+    <TextView
+        android:id="@+id/txtViewSteve"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/PickAxe"
+        android:layout_alignTop="@+id/textViewSteve"
+        android:gravity="center"
+        android:visibility="invisible"
+        android:text="Steve \nWood Pickaxe\n$3000 - 200 OPM"
+        android:textSize="6dp" />
+
+    <ImageView
+        android:id="@+id/PickAxe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignTop="@+id/buySteve"
+        android:src="@drawable/ic_launcher" />
+
+    
+    <!-- Dedicated Miner -->
+        
+        
+    <TextView
+        android:id="@+id/txtViewExp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/DediMiner"
+        android:layout_alignLeft="@+id/txtEndore"
+        android:gravity="center"
+        android:text="Exp Miner \nIron Pickaxe\n$50000 - 1400 OPM"
+        android:visibility="invisible"
+        android:textSize="6dp" />
+    
+    <!-- Experienced Miner -->
+
+    <Button
+        android:id="@+id/Button01"
+        android:layout_width="40dp"
+        android:layout_height="25dp"
+        android:layout_alignTop="@+id/txtViewExp"
+        android:layout_toRightOf="@+id/PickAxe"
+        android:onClick="buy"
+        android:text="Sell"
+        android:textSize="8dp" />
+
+    <TextView
+        android:id="@+id/txtEndore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/ExpMiner"
+        android:layout_alignLeft="@+id/txtViewSteve"
+        android:gravity="center"
+        android:text="Dedi Miner \nIron Pickaxe\n$15000 - 400 OPM"
+        android:textSize="6dp"
+        android:visibility="invisible" />
+
+    <TextView
+        android:id="@+id/txtGold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/DediMiner"
+        android:layout_below="@+id/ExpMiner"
+        android:gravity="center"
+        android:text="@string/integer_exp_miner"
+        android:textSize="7dp" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="40dp"
+        android:layout_height="25dp"
+        android:layout_alignTop="@+id/ExpMiner"
+        android:layout_toRightOf="@+id/PickAxe"
+        android:text="Buy"
+        android:textSize="8dp" />
+
+    <Button
+        android:id="@+id/Button02"
+        android:layout_width="40dp"
+        android:layout_height="25dp"
+        android:layout_alignLeft="@+id/button2"
+        android:layout_alignTop="@+id/txtEndore"
+        android:onClick="buy"
+        android:text="Sell"
+        android:textSize="8dp" />
+
+    <Button
+        android:id="@+id/sellSteve"
+        android:layout_width="40dp"
+        android:layout_height="25dp"
+        android:layout_alignBottom="@+id/PickAxe"
+        android:layout_alignLeft="@+id/buySteve"
+        android:onClick="buy"
+        android:text="Sell"
+        android:textSize="8dp" />
+
+    <ImageView
+        android:id="@+id/ExpMiner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/txtViewSteve"
+        android:layout_below="@+id/textViewSteve"
+        android:src="@drawable/miner" />
+
+    <ImageView
+        android:id="@+id/DediMiner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/ExpMiner"
+        android:layout_below="@+id/txtGold"
+        android:src="@drawable/morris" />
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="40dp"
+        android:layout_height="25dp"
+        android:layout_below="@+id/txtGold"
+        android:layout_toRightOf="@+id/PickAxe"
+        android:text="Buy"
+        android:textSize="8dp" />
+
+    <TextView
+        android:id="@+id/textViewSteve"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/ExpMiner"
+        android:layout_below="@+id/PickAxe"
+        android:gravity="center"
+        android:text="@string/integer_steve"
+        android:textSize="7dp" />
+
+    <TextView
+        android:id="@+id/txtDiamond"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/DediMiner"
+        android:gravity="center"
+        android:layout_below="@+id/Button01"
+        android:text="@string/integer_dedi_miner"
+        android:textSize="7dp" />
+
+</RelativeLayout>

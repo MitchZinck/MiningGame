@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>    
+    <!-- Start of Miners -->
+	<string name="integer_steve">You have: 0</string>
+    <string name="integer_dedi_miner">You have: 0</string>
+    <string name="integer_exp_miner">You have: 0</string>
+    <string name="integer_heav_miner">You have: 0</string>
+    <string name="integer_hell_miner">You have: 0</string>
+</resources>

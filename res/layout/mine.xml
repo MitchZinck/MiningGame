@@ -1,0 +1,226 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:padding="6dip" >
+
+    <TextView
+        android:id="@+id/txtViewMaxOres"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/PickAxe"
+        android:layout_marginLeft="16dp"
+        android:layout_toRightOf="@+id/PickAxe"
+        android:text="Max ores per: "
+        android:textSize="10dp" />
+
+    <ImageView
+        android:id="@+id/PickAxe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:onClick="mine"
+        android:src="@drawable/pickaxewood" />
+
+    <TextView
+        android:id="@+id/textViewSharp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/txtViewMaxOres"
+        android:layout_below="@+id/txtViewMaxOres"
+        android:text="Sharpness: "
+        android:textSize="10dp" />
+
+    <TextView
+        android:id="@+id/textViewDrop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textViewSharp"
+        android:layout_below="@+id/textViewSharp"
+        android:text="Drop Chances: "
+        android:textSize="10dp" />
+
+    <TextView
+        android:id="@+id/textViewSpeed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textViewDrop"
+        android:layout_below="@+id/textViewDrop"
+        android:text="Speed: "
+        android:textSize="10dp" />
+
+    <TextView
+        android:id="@+id/textViewName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/PickAxe"
+        android:text="Wood Pickaxe"
+        android:textSize="10dp"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/netherquartz"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:layout_alignLeft="@+id/glowstone"
+        android:layout_alignTop="@+id/diamond"
+        android:src="@drawable/netherquartz" />
+
+    <ImageView
+        android:id="@+id/gold"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:layout_alignLeft="@+id/diamond"
+        android:layout_alignTop="@+id/mossycobble"
+        android:src="@drawable/gold" />
+
+    <ImageView
+        android:id="@+id/endore"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:layout_alignLeft="@+id/netherquartz"
+        android:layout_alignTop="@+id/gold"
+        android:src="@drawable/endore" />
+
+    <ImageView
+        android:id="@+id/mossycobble"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:layout_alignBottom="@+id/textViewName"
+        android:layout_alignLeft="@+id/stone"
+        android:src="@drawable/mossycobble" />
+
+    <ImageView
+        android:id="@+id/stone"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:layout_alignBottom="@+id/textViewSpeed"
+        android:layout_alignLeft="@+id/coal"
+        android:src="@drawable/stone" />
+
+    <ImageView
+        android:id="@+id/diamond"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:layout_alignLeft="@+id/iron"
+        android:layout_alignTop="@+id/stone"
+        android:src="@drawable/diamond" />
+
+    <TextView
+        android:id="@+id/textViewOresMined"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/txtViewMaxOres"
+        android:layout_alignBottom="@+id/txtViewMaxOres"
+        android:layout_toLeftOf="@+id/glowstone"
+        android:text="Ores Mined"
+        android:textSize="10dp" />
+
+    <ImageView
+        android:id="@+id/coal"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:layout_alignTop="@+id/iron"
+        android:layout_toLeftOf="@+id/textViewOresMined"
+        android:src="@drawable/coal" />
+
+    <ImageView
+        android:id="@+id/iron"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:layout_alignLeft="@+id/textViewOresMined"
+        android:layout_alignTop="@+id/textViewSharp"
+        android:layout_marginLeft="17dp"
+        android:src="@drawable/iron" />
+
+    <ImageView
+        android:id="@+id/glowstone"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/iron"
+        android:src="@drawable/glowstone" />
+
+    <TextView
+        android:id="@+id/txtCoal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/coal"
+        android:layout_toLeftOf="@+id/coal"
+        android:text=""
+        android:textSize="10dp" />
+
+    <TextView
+        android:id="@+id/txtStone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/stone"
+        android:layout_alignLeft="@+id/txtCoal"
+        android:text=""
+        android:textSize="10dp" />
+
+    <TextView
+        android:id="@+id/txtMossyCobble"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/mossycobble"
+        android:layout_alignLeft="@+id/txtStone"
+        android:text=""
+        android:textSize="10dp" />
+
+    <TextView
+        android:id="@+id/txtIron"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/iron"
+        android:layout_toLeftOf="@+id/diamond"
+        android:text=""
+        android:textSize="10dp" />
+
+    <TextView
+        android:id="@+id/txtGlowStone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/glowstone"
+        android:layout_toLeftOf="@+id/glowstone"
+        android:text=""
+        android:textSize="10dp" />
+
+    <TextView
+        android:id="@+id/txtNether"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/netherquartz"
+        android:layout_alignLeft="@+id/txtGlowStone"
+        android:text=""
+        android:textSize="10dp" />
+
+    <TextView
+        android:id="@+id/txtEndore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/endore"
+        android:layout_alignLeft="@+id/txtNether"
+        android:text=""
+        android:textSize="10dp" />
+
+    <TextView
+        android:id="@+id/txtGold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/gold"
+        android:layout_alignLeft="@+id/txtIron"
+        android:text=""
+        android:textSize="10dp" />
+
+    <TextView
+        android:id="@+id/txtDiamond"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/diamond"
+        android:layout_toLeftOf="@+id/diamond"
+        android:text=""
+        android:textSize="10dp" />
+
+</RelativeLayout>

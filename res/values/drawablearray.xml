@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="ore_images">
+        <item>@drawable/stone</item>
+        <item>@drawable/coal</item>
+        <item>@drawable/mossycobble</item>
+    </string-array>
+
+</resources>
