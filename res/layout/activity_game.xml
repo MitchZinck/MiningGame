@@ -15,6 +15,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="36dp"
+        android:onClick="changeView"
         android:text="MINE"
         android:textSize="12dp" />
 
@@ -67,7 +68,27 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/buttonUpgrades"
+        android:visibility="visible"
         layout="@layout/mine" />
+    
+    <include
+        android:id="@+id/includeVault"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/buttonUpgrades"
+        android:visibility="invisible"
+        layout="@layout/vault" />
+    
+    
+    
+    <ViewStub
+	    android:id="@+id/viewInteract"
+	    android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/buttonUpgrades"
+	    />
 
     <Button
         android:id="@+id/buttonUpgrades"
@@ -76,6 +97,7 @@
         android:layout_alignBaseline="@+id/buttonMine"
         android:layout_alignBottom="@+id/buttonMine"
         android:layout_alignParentLeft="true"
+        android:onClick="changeView"
         android:text="UPGRADES"
         android:textSize="12dp" />
 
@@ -86,6 +108,7 @@
         android:layout_alignBaseline="@+id/buttonMine"
         android:layout_alignBottom="@+id/buttonMine"
         android:layout_alignRight="@+id/includeMine"
+        android:onClick="changeView"
         android:text="VAULT"
         android:textSize="12dp" />
 

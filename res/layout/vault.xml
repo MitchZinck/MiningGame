@@ -3,5 +3,113 @@
     android:layout_height="fill_parent"
     android:padding="6dip" >
 
+    <ImageView
+        android:id="@+id/Coal"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:layout_alignTop="@+id/Netherquartz"
+        android:layout_marginRight="16dp"
+        android:layout_toLeftOf="@+id/Netherquartz"
+        android:src="@drawable/coal" />
+
+    <ImageView
+        android:id="@+id/Gold"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:layout_alignTop="@+id/Coal"
+        android:layout_marginRight="16dp"
+        android:layout_toLeftOf="@+id/Coal"
+        android:src="@drawable/gold" />
+
+    <ImageView
+        android:id="@+id/Stone"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:layout_alignTop="@+id/Gold"
+        android:layout_marginRight="16dp"
+        android:layout_toLeftOf="@+id/Gold"
+        android:src="@drawable/stone" />
+
+    <ImageView
+        android:id="@+id/Iron"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:layout_alignTop="@+id/Stone"
+        android:layout_marginRight="16dp"
+        android:layout_toLeftOf="@+id/Stone"
+        android:src="@drawable/iron" />
+
+    <ImageView
+        android:id="@+id/Glowstone"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:layout_alignTop="@+id/Iron"
+        android:layout_marginRight="16dp"
+        android:layout_toLeftOf="@+id/Iron"
+        android:src="@drawable/glowstone" />
+
+    <ImageView
+        android:id="@+id/Diamond"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:layout_alignTop="@+id/Glowstone"
+        android:layout_marginRight="16dp"
+        android:layout_toLeftOf="@+id/Glowstone"
+        android:src="@drawable/diamond" />
+
+    <ImageView
+        android:id="@+id/Mossycobble"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:layout_alignTop="@+id/Diamond"
+        android:layout_marginRight="16dp"
+        android:layout_toLeftOf="@+id/Diamond"
+        android:src="@drawable/mossycobble" />
+
+    <ImageView
+        android:id="@+id/Endore"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:layout_alignTop="@+id/Mossycobble"
+        android:layout_marginRight="16dp"
+        android:layout_toLeftOf="@+id/Mossycobble"
+        android:src="@drawable/endore" />
+
+    <ImageView
+        android:id="@+id/Netherquartz"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:src="@drawable/netherquartz" />
+
+    <TextView
+        android:id="@+id/txtViewOre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/Endore"
+        android:layout_alignParentLeft="true"
+        android:text="Ore"
+        android:textSize="10dp" />
+
+    <TextView
+        android:id="@+id/txtViewAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/txtViewOre"
+        android:layout_below="@+id/txtViewOre"
+        android:layout_marginTop="14dp"
+        android:text="Amnt."
+        android:textSize="10dp" />
+
+    <TextView
+        android:id="@+id/txtViewWorth"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/txtViewAmount"
+        android:layout_below="@+id/txtViewAmount"
+        android:layout_marginTop="14dp"
+        android:text="Worth"
+        android:textSize="10dp" />
 
 </RelativeLayout>

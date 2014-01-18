@@ -60,94 +60,93 @@
         android:textStyle="bold" />
 
     <ImageView
-        android:id="@+id/netherquartz"
+        android:id="@+id/Netherquartz"
         android:layout_width="15dp"
         android:layout_height="15dp"
-        android:layout_alignLeft="@+id/glowstone"
-        android:layout_alignTop="@+id/diamond"
+        android:layout_alignLeft="@+id/Glowstone"
+        android:layout_alignTop="@+id/Diamond"
+        android:visibility="invisible"
         android:src="@drawable/netherquartz" />
 
     <ImageView
-        android:id="@+id/gold"
+        android:id="@+id/Gold"
         android:layout_width="15dp"
         android:layout_height="15dp"
-        android:layout_alignLeft="@+id/diamond"
-        android:layout_alignTop="@+id/mossycobble"
+        android:layout_alignLeft="@+id/Diamond"
+        android:layout_alignTop="@+id/Mossycobble"
+        android:visibility="invisible"
         android:src="@drawable/gold" />
 
     <ImageView
-        android:id="@+id/endore"
+        android:id="@+id/Endore"
         android:layout_width="15dp"
         android:layout_height="15dp"
-        android:layout_alignLeft="@+id/netherquartz"
-        android:layout_alignTop="@+id/gold"
+        android:layout_alignLeft="@+id/Netherquartz"
+        android:layout_alignTop="@+id/Gold"
+        android:visibility="invisible"
         android:src="@drawable/endore" />
 
     <ImageView
-        android:id="@+id/mossycobble"
+        android:id="@+id/Mossycobble"
         android:layout_width="15dp"
         android:layout_height="15dp"
         android:layout_alignBottom="@+id/textViewName"
-        android:layout_alignLeft="@+id/stone"
+        android:layout_alignLeft="@+id/Stone"
+        android:visibility="invisible"
         android:src="@drawable/mossycobble" />
 
     <ImageView
-        android:id="@+id/stone"
+        android:id="@+id/Stone"
         android:layout_width="15dp"
         android:layout_height="15dp"
         android:layout_alignBottom="@+id/textViewSpeed"
-        android:layout_alignLeft="@+id/coal"
+        android:layout_alignLeft="@+id/Coal"
+        android:visibility="invisible"
         android:src="@drawable/stone" />
 
     <ImageView
-        android:id="@+id/diamond"
+        android:id="@+id/Diamond"
         android:layout_width="15dp"
         android:layout_height="15dp"
-        android:layout_alignLeft="@+id/iron"
-        android:layout_alignTop="@+id/stone"
+        android:layout_alignLeft="@+id/Iron"
+        android:layout_alignTop="@+id/Stone"
+        android:visibility="invisible"
         android:src="@drawable/diamond" />
 
-    <TextView
-        android:id="@+id/textViewOresMined"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/txtViewMaxOres"
-        android:layout_alignBottom="@+id/txtViewMaxOres"
-        android:layout_toLeftOf="@+id/glowstone"
-        android:text="Ores Mined"
-        android:textSize="10dp" />
-
     <ImageView
-        android:id="@+id/coal"
+        android:id="@+id/Coal"
         android:layout_width="15dp"
         android:layout_height="15dp"
-        android:layout_alignTop="@+id/iron"
+        android:layout_alignTop="@+id/Iron"
         android:layout_toLeftOf="@+id/textViewOresMined"
+        android:visibility="invisible"
         android:src="@drawable/coal" />
 
     <ImageView
-        android:id="@+id/iron"
+        android:id="@+id/Iron"
         android:layout_width="15dp"
         android:layout_height="15dp"
         android:layout_alignLeft="@+id/textViewOresMined"
         android:layout_alignTop="@+id/textViewSharp"
         android:layout_marginLeft="17dp"
+        android:visibility="invisible"
         android:src="@drawable/iron" />
 
     <ImageView
-        android:id="@+id/glowstone"
+        android:id="@+id/Glowstone"
         android:layout_width="15dp"
         android:layout_height="15dp"
         android:layout_alignParentRight="true"
-        android:layout_alignTop="@+id/iron"
+        android:layout_alignTop="@+id/Iron"
+        android:visibility="invisible"
         android:src="@drawable/glowstone" />
 
     <TextView
         android:id="@+id/txtCoal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/coal"
-        android:layout_toLeftOf="@+id/coal"
+        android:layout_alignBottom="@+id/Coal"
+        android:layout_toLeftOf="@+id/Coal"
         android:text=""
         android:textSize="10dp" />
 
@@ -155,7 +154,7 @@
         android:id="@+id/txtStone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/stone"
+        android:layout_alignBottom="@+id/Stone"
         android:layout_alignLeft="@+id/txtCoal"
         android:text=""
         android:textSize="10dp" />
@@ -164,7 +163,7 @@
         android:id="@+id/txtMossyCobble"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/mossycobble"
+        android:layout_alignBottom="@+id/Mossycobble"
         android:layout_alignLeft="@+id/txtStone"
         android:text=""
         android:textSize="10dp" />
@@ -173,8 +172,8 @@
         android:id="@+id/txtIron"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/iron"
-        android:layout_toLeftOf="@+id/diamond"
+        android:layout_alignBottom="@+id/Iron"
+        android:layout_toLeftOf="@+id/Diamond"
         android:text=""
         android:textSize="10dp" />
 
@@ -182,8 +181,8 @@
         android:id="@+id/txtGlowStone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/glowstone"
-        android:layout_toLeftOf="@+id/glowstone"
+        android:layout_alignBottom="@+id/Glowstone"
+        android:layout_toLeftOf="@+id/Glowstone"
         android:text=""
         android:textSize="10dp" />
 
@@ -191,7 +190,7 @@
         android:id="@+id/txtNether"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/netherquartz"
+        android:layout_alignBottom="@+id/Netherquartz"
         android:layout_alignLeft="@+id/txtGlowStone"
         android:text=""
         android:textSize="10dp" />
@@ -200,7 +199,7 @@
         android:id="@+id/txtEndore"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/endore"
+        android:layout_alignBottom="@+id/Endore"
         android:layout_alignLeft="@+id/txtNether"
         android:text=""
         android:textSize="10dp" />
@@ -209,7 +208,7 @@
         android:id="@+id/txtGold"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/gold"
+        android:layout_alignBottom="@+id/Gold"
         android:layout_alignLeft="@+id/txtIron"
         android:text=""
         android:textSize="10dp" />
@@ -218,9 +217,18 @@
         android:id="@+id/txtDiamond"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/diamond"
-        android:layout_toLeftOf="@+id/diamond"
+        android:layout_alignBottom="@+id/Diamond"
+        android:layout_toLeftOf="@+id/Diamond"
         android:text=""
+        android:textSize="10dp" />
+
+    <TextView
+        android:id="@+id/textViewOresMined"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_toLeftOf="@+id/Glowstone"
+        android:text="Ores Mined"
         android:textSize="10dp" />
 
 </RelativeLayout>
