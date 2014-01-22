@@ -19,16 +19,6 @@
         android:text="MINE"
         android:textSize="12dp" />
 
-    <Button
-        android:id="@+id/buttonMiners"
-        android:layout_width="70dp"
-        android:layout_height="30dp"
-        android:layout_alignLeft="@+id/buttonUpgrades"
-        android:layout_below="@+id/buttonMine"
-        android:layout_marginTop="78dp"
-        android:text="Workers"
-        android:textSize="12dp" />
-
     <ImageView
         android:id="@+id/imageViewBag"
         android:layout_width="wrap_content"
@@ -61,15 +51,6 @@
         android:layout_alignTop="@+id/imageViewChest"
         android:layout_marginRight="16dp"
         android:src="@drawable/zombie" />
-
-    <include
-        android:id="@+id/includeMine"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/buttonUpgrades"
-        android:visibility="visible"
-        layout="@layout/mine" />
     
     <include
         android:id="@+id/includeVault"
@@ -119,5 +100,53 @@
         android:layout_alignLeft="@+id/buttonMiners"
         android:layout_below="@+id/buttonMiners"
         layout="@layout/miners" />
+
+    <Button
+        android:id="@+id/buttonMiners"
+        android:layout_width="70dp"
+        android:layout_height="30dp"
+        android:layout_alignLeft="@+id/includeVault"
+        android:layout_below="@+id/includeVault"
+        android:text="Workers"
+        android:textSize="12dp" />
+
+    <include
+        android:id="@+id/includeMine"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/includeVault"
+        android:layout_below="@+id/buttonMine"
+        layout="@layout/mine"
+        android:visibility="visible" />
+
+    <TextView
+        android:id="@+id/txtMoney"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/imageViewBag"
+        android:layout_alignRight="@+id/buttonMiners"
+        android:layout_toRightOf="@+id/imageViewBag"
+        android:text="$0"
+        android:textSize="10dp" />
+
+    <TextView
+        android:id="@+id/txtVault"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/imageViewChest"
+        android:layout_toLeftOf="@+id/imageViewZombie"
+        android:layout_toRightOf="@+id/imageViewChest"
+        android:text="0/250"
+        android:textSize="10dp" />
+
+    <TextView
+        android:id="@+id/txtFullVault"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/txtVault"
+        android:layout_toRightOf="@+id/imageViewChest"
+        android:text="VAULT FULL"
+        android:textSize="10dp"
+        android:visibility="invisible" />
 
 </RelativeLayout>

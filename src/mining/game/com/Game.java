@@ -3,19 +3,21 @@ package mining.game.com;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Map.Entry;
 
 import mining.game.com.player.Ore;
 import mining.game.com.player.Pickaxe;
 import mining.game.com.player.Player;
 import android.app.ActionBar;
 import android.app.Activity;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
-import android.view.ViewStub;
+import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -24,20 +26,23 @@ public class Game extends Activity {
 
 	private RelativeLayout mine;
 	private Player player;
+	private boolean mining = false;
 	private Pickaxe pickaxe = null;
 	private Map<String, Integer> map;
 	private ArrayList<Ore> oresToClear = new ArrayList<Ore>();
+	private int totalVault = 0;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_game);
+		setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 		
 		ActionBar actionBar = getActionBar();
 		actionBar.hide();		
 		
 		loadResources();
-		player = new Player(map, pickaxe);
+		player = new Player(map, pickaxe, 0, 250000);
 	}
 
 	@Override
@@ -47,7 +52,21 @@ public class Game extends Activity {
 		return true;
 	}
 	
-	public void mine(View v) {		
+	public void mine(View v) {
+		if(mining == true) {
+			return;
+		}
+		
+    	totalVault = player.getTotalVault();
+    	
+    	if(totalVault == player.getVaultSize()) {
+    		TextView ztc = (TextView) findViewById(R.id.txtFullVault);
+    		ztc.setVisibility(View.VISIBLE);
+    		return;
+    	}
+    	
+		mining = true;
+		
 		for(Ore i : oresToClear) {
 			TextView t = (TextView) findViewById(i.getIdTxt());
 			t.setText("");
@@ -61,7 +80,7 @@ public class Game extends Activity {
 //			Log.i(map.getKey(), Integer.toString(map.getValue()));
 //		}
 		
-		ImageView animationTarget = (ImageView) findViewById(R.id.PickAxe);
+		ImageView animationTarget = (ImageView) findViewById(R.id.Pickaxe);
 
         Animation animation = AnimationUtils.loadAnimation(this, R.anim.rotate_pickaxe);
         animation.setDuration(player.getPickAxe().getSpeed() / 2);
@@ -72,11 +91,22 @@ public class Game extends Activity {
             public void run() {
         		int amount = player.getPickAxe().getMax();		
         		int mined = 0;
+        		int totalWorth = 0;
+        		boolean full = false;
         		
         		for(Ore ore : Ore.values()) {
         			if(player.getPickAxe().getSharpness() >= ore.getHardNess()) {
         				mined = (int) Math.round(amount * ore.getProb());
-        				player.getVault().put(ore.name(), mined);
+        				
+        				if(mined + totalVault >= player.getVaultSize()) {
+        					mined = player.getVaultSize() - totalVault;
+        					full = true;
+        					TextView ztc = (TextView) findViewById(R.id.txtFullVault);
+        		    		ztc.setVisibility(View.VISIBLE);
+        				}
+        				
+        				int prev = player.getVault().get(ore.name()) + mined;
+        				player.getVault().put(ore.name(), prev);
         				amount -= mined;
         				
         				oresToClear.add(ore);
@@ -85,11 +115,24 @@ public class Game extends Activity {
         				tv.setText(mined + " x ");
         				
         				ImageView zz = (ImageView) findViewById(ore.getIdImg());
-        				zz.setVisibility(View.VISIBLE);        				
+        				zz.setVisibility(View.VISIBLE); 
+        				
+        				TextView t = (TextView) findViewById(ore.getTxtVault());        				
+        				t.setText(prev + "\n$" + prev * ore.getWorth());
+        				
+        				totalWorth += (prev * ore.getWorth());
+        				
+        				if(full == true) {
+        					break;
+        				}
         			}
         		}	
+        		TextView ttz = (TextView) findViewById(R.id.txtTotalWorth);
+        		ttz.setText("Total Worth\n$" + totalWorth);
+        		mining = false;        		
         		
-        		
+        		TextView vault = (TextView) findViewById(R.id.txtVault);
+        		vault.setText(Integer.toString(player.getTotalVault()) + "/" + Integer.toString(player.getVaultSize()));
             }
         }, player.getPickAxe().getSpeed());
         		
@@ -106,20 +149,65 @@ public class Game extends Activity {
         switch (v.getId()) {
         
         case R.id.buttonVault:
-//        	if(stub.getLayoutResource() != R.layout.vault) {
-//				stub.setLayoutResource(R.layout.vault);
-//				View inflated = stub.inflate();
-//        	}
         	findViewById(R.id.includeVault).setVisibility(View.VISIBLE);
 			break;
 			
         case R.id.buttonMine:
-//        	findViewById(R.id.viewInteract).setVisibility(View.GONE);
         	findViewById(R.id.includeVault).setVisibility(View.INVISIBLE);
         	b.setVisibility(View.VISIBLE);
         	break;
         }
 	}
+	
+	public void sellOre(View v) {
+		int amount = 0;
+		
+		for(Entry<String, Integer> i : player.getVault().entrySet()) {
+			amount += Ore.valueOf(i.getKey()).getWorth() * i.getValue();
+		}		
+		
+		player.getVault().clear();
+		player.getVault().put("STONE", 0);
+		player.getVault().put("COAL", 0);
+		player.getVault().put("MOSSYCOBBLE", 0);
+		player.getVault().put("IRON", 0);
+		player.getVault().put("GOLD", 0);
+		player.getVault().put("DIAMOND", 0);
+		player.getVault().put("GLOWSTONE", 0);
+		player.getVault().put("NETHERQUARTZ", 0);
+		player.getVault().put("ENDORE", 0);
+		
+		for(Ore ore : Ore.values()) {
+			TextView t = (TextView) findViewById(ore.getTxtVault());        				
+			t.setText("0\n$0");
+		}
+		
+		TextView total = (TextView) findViewById(R.id.txtTotalWorth);
+		total.setText("Total Worth\n$0");
+		
+		player.setMoney(amount + player.getMoney());
+		TextView tv = (TextView) findViewById(R.id.txtMoney);
+		tv.setText(Integer.toString(player.getMoney()));
+		
+		TextView ztc = (TextView) findViewById(R.id.txtFullVault);
+		ztc.setVisibility(View.INVISIBLE);
+		
+		TextView vault = (TextView) findViewById(R.id.txtVault);
+		vault.setText("0/" + Integer.toString(player.getVaultSize()));
+	}
+	
+
+//		case R.id.imgCoal:
+//			if(findViewById(R.id.vltCoal).getVisibility() == View.VISIBLE) {
+//				AlphaAnimation alpha = new AlphaAnimation(0.1F, 1F); 
+//				alpha.setDuration(500);
+//				alpha.setFillAfter(true);
+//			} else {
+//				AlphaAnimation alpha = new AlphaAnimation(1F, 0.1F); 
+//				alpha.setDuration(500);
+//				alpha.setFillAfter(true);
+//			}
+//			break;
 
 	private void loadResources() {
 		setMine((RelativeLayout) findViewById(R.id.includeMine));
@@ -137,7 +225,7 @@ public class Game extends Activity {
 		map.put("GLOWSTONE", 0);
 		map.put("NETHERQUARTZ", 0);
 		map.put("ENDORE", 0);
-		pickaxe = Pickaxe.WOOD;
+		pickaxe = Pickaxe.ENDER;
 	}
 
 	private void setMine(RelativeLayout rl) {

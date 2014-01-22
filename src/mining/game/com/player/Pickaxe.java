@@ -11,7 +11,7 @@ public enum Pickaxe {
 	DIAMOND			(R.drawable.pickaxediamond, "Diam Pickaxe", 1000, 3, 450, 5, 20000, true),
 	HEAVENLY 		(R.drawable.pickaxeheavenly, "Heavenly Pickaxe", 1000, 4, 1000, 1, 5000000, true),
 	UNDERWORLD 		(R.drawable.pickaxehell, "Underworld Pickaxe", 1000, 5, 4000, 0, 28000000, false),
-	ENDER 			(R.drawable.pickaxeender, "Ender Pickaxe", 1000, 6, 10000, 0, 500000000, false),
+	ENDER 			(R.drawable.pickaxeender, "Ender Pickaxe", 50, 6, 10000, 0, 500000000, false),
 	FINAL 			(R.drawable.pickaxewood, "Final Pickaxe", 1000, 6, 20000, 0, 500000000000L, false),
 	HELL_DRILL 		(R.drawable.drillhell, "Hell Drill", 1000, 5, 9000, 0, 30000000, false),
 	MUCH_SOCK 		(R.drawable.muchsock, "Much Sock", 60000, 0, 2, 110, 0, false);

@@ -7,14 +7,14 @@
         android:id="@+id/txtViewMaxOres"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/PickAxe"
+        android:layout_alignTop="@+id/Pickaxe"
         android:layout_marginLeft="16dp"
-        android:layout_toRightOf="@+id/PickAxe"
+        android:layout_toRightOf="@+id/Pickaxe"
         android:text="Max ores per: "
         android:textSize="10dp" />
 
     <ImageView
-        android:id="@+id/PickAxe"
+        android:id="@+id/Pickaxe"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
@@ -54,7 +54,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/PickAxe"
+        android:layout_below="@+id/Pickaxe"
         android:text="Wood Pickaxe"
         android:textSize="10dp"
         android:textStyle="bold" />
@@ -78,7 +78,7 @@
         android:src="@drawable/gold" />
 
     <ImageView
-        android:id="@+id/Endore"
+        android:id="@+id/imgEndore"
         android:layout_width="15dp"
         android:layout_height="15dp"
         android:layout_alignLeft="@+id/Netherquartz"
@@ -138,8 +138,8 @@
         android:layout_height="15dp"
         android:layout_alignParentRight="true"
         android:layout_alignTop="@+id/Iron"
-        android:visibility="invisible"
-        android:src="@drawable/glowstone" />
+        android:src="@drawable/glowstone"
+        android:visibility="invisible" />
 
     <TextView
         android:id="@+id/txtCoal"
@@ -199,7 +199,7 @@
         android:id="@+id/txtEndore"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/Endore"
+        android:layout_alignBottom="@+id/imgEndore"
         android:layout_alignLeft="@+id/txtNether"
         android:text=""
         android:textSize="10dp" />
