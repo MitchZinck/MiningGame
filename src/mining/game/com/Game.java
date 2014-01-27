@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Random;
 
 import mining.game.com.player.Ore;
 import mining.game.com.player.Pickaxe;
@@ -12,10 +13,8 @@ import android.app.ActionBar;
 import android.app.Activity;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.View;
-import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
@@ -42,7 +41,8 @@ public class Game extends Activity {
 		actionBar.hide();		
 		
 		loadResources();
-		player = new Player(map, pickaxe, 0, 250000);
+		player = new Player(map, pickaxe, 0, 250);
+		setValues();		
 	}
 
 	@Override
@@ -93,6 +93,15 @@ public class Game extends Activity {
         		int mined = 0;
         		int totalWorth = 0;
         		boolean full = false;
+        		
+        		Random r = new Random();
+        		
+        		if(r.nextInt(100) <= player.getPickAxe().getDropChance()) {
+        			int yyzzyy = (int) Math.floor(r.nextInt((int) (player.getPickAxe().getDropChance() * 0.3)));       
+        			amount -= yyzzyy;      
+        			TextView taz = (TextView) findViewById(R.id.txtViewLostOres);
+        			taz.setText("Ores lost: " + Integer.toString(yyzzyy));
+        		}
         		
         		for(Ore ore : Ore.values()) {
         			if(player.getPickAxe().getSharpness() >= ore.getHardNess()) {
@@ -157,6 +166,17 @@ public class Game extends Activity {
         	b.setVisibility(View.VISIBLE);
         	break;
         }
+	}
+	
+	public void setValues() {
+		TextView tv = (TextView) findViewById(R.id.textViewMaxOres);
+		tv.setText("MaxOres: " + Integer.toString(player.getPickAxe().getMax()));
+		tv = (TextView) findViewById(R.id.textViewSharp);	
+		tv.setText("Sharpness: " + Integer.toString(player.getPickAxe().getSharpness()));
+		tv = (TextView) findViewById(R.id.textViewDrop);	
+		tv.setText("Drop Chance: " + Integer.toString(player.getPickAxe().getDropChance()));
+		tv = (TextView) findViewById(R.id.textViewSpeed);	
+		tv.setText("Speed: " + Integer.toString(player.getPickAxe().getSpeed()));
 	}
 	
 	public void sellOre(View v) {
@@ -225,7 +245,7 @@ public class Game extends Activity {
 		map.put("GLOWSTONE", 0);
 		map.put("NETHERQUARTZ", 0);
 		map.put("ENDORE", 0);
-		pickaxe = Pickaxe.ENDER;
+		pickaxe = Pickaxe.WOOD;
 	}
 
 	private void setMine(RelativeLayout rl) {

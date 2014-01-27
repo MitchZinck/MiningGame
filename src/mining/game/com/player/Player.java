@@ -3,6 +3,9 @@ package mining.game.com.player;
 import java.util.HashMap;
 import java.util.Map;
 
+import mining.game.com.R;
+import android.widget.TextView;
+
 public class Player {
 
 	private Map<String, Integer> vault = new HashMap<String, Integer>();

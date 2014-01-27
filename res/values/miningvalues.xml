@@ -6,4 +6,8 @@
     <string name="integer_exp_miner">You have: 0</string>
     <string name="integer_heav_miner">You have: 0</string>
     <string name="integer_hell_miner">You have: 0</string>
+    <string name="integer_maxores">MaxOres: 0</string>
+    <string name="integer_sharp">Sharpness: 0</string>
+    <string name="integer_drop">Drop Chance: 0</string>
+    <string name="integer_speed">Speed: 0</string>
 </resources>
