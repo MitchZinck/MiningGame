@@ -1,5 +1,6 @@
 package mining.game.com;
 
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -12,6 +13,7 @@ import mining.game.com.player.Player;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.content.pm.ActivityInfo;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
@@ -41,8 +43,9 @@ public class Game extends Activity {
 		actionBar.hide();		
 		
 		loadResources();
-		player = new Player(map, pickaxe, 0, 250);
-		setValues();		
+		player = new Player(map, pickaxe, new BigInteger("0"), 250);
+		setValues();
+		
 	}
 
 	@Override
@@ -83,28 +86,28 @@ public class Game extends Activity {
 		ImageView animationTarget = (ImageView) findViewById(R.id.Pickaxe);
 
         Animation animation = AnimationUtils.loadAnimation(this, R.anim.rotate_pickaxe);
-        animation.setDuration(player.getPickAxe().getSpeed() / 2);
+        animation.setDuration(player.getPickaxe().getSpeed() / 2);
         animationTarget.startAnimation(animation);    
         
         animationTarget.postDelayed(new Runnable() {
             @Override
             public void run() {
-        		int amount = player.getPickAxe().getMax();		
+        		int amount = player.getPickaxe().getMax();		
         		int mined = 0;
         		int totalWorth = 0;
         		boolean full = false;
         		
         		Random r = new Random();
         		
-        		if(r.nextInt(100) <= player.getPickAxe().getDropChance()) {
-        			int yyzzyy = (int) Math.floor(r.nextInt((int) (player.getPickAxe().getDropChance() * 0.3)));       
-        			amount -= yyzzyy;      
-        			TextView taz = (TextView) findViewById(R.id.txtViewLostOres);
-        			taz.setText("Ores lost: " + Integer.toString(yyzzyy));
+        		if(r.nextInt(100) <= player.getPickaxe().getDropChance()) {
+        			int yyzzyy = (int) Math.floor(r.nextInt((int) (amount * 0.3)));       
+        			amount = (yyzzyy > 50) ? 50 : amount - yyzzyy;      
+        			TextView taz = (TextView) findViewById(R.id.txtLostOres);
+        			taz.setText("Ores lost:" + Integer.toString(yyzzyy));
         		}
-        		
+        	
         		for(Ore ore : Ore.values()) {
-        			if(player.getPickAxe().getSharpness() >= ore.getHardNess()) {
+        			if(player.getPickaxe().getSharpness() >= ore.getHardNess()) {
         				mined = (int) Math.round(amount * ore.getProb());
         				
         				if(mined + totalVault >= player.getVaultSize()) {
@@ -143,8 +146,29 @@ public class Game extends Activity {
         		TextView vault = (TextView) findViewById(R.id.txtVault);
         		vault.setText(Integer.toString(player.getTotalVault()) + "/" + Integer.toString(player.getVaultSize()));
             }
-        }, player.getPickAxe().getSpeed());
+        }, player.getPickaxe().getSpeed());
         		
+	}
+	
+	public void buyUpgrade1(View v) {
+		TextView tsd = (TextView) findViewById(R.id.upgTxtName1);
+		String s = (String) tsd.getText();
+		if(s.contains("axe") && player.pickUpgrade()) {
+			player.setPickAxe(Pickaxe.values()[player.getPickaxe().ordinal() + 1]);
+			player.setMoney(BigInteger.valueOf(player.getMoney().intValue() - player.getPickaxe().getPrice()));
+			TextView txtMoney = (TextView) findViewById(R.id.txtMoney);
+			txtMoney.setText("$" + Integer.toString(player.getMoney().intValue()));
+			tsd.setText(player.getPickaxe().name());
+			TextView upg = (TextView) findViewById(R.id.upgPrice1);
+			upg.setText("$" + Long.toString(Pickaxe.values()[player.getPickaxe().ordinal() + 1].getPrice()));
+			ImageView im = (ImageView) findViewById(R.id.upgImg1);
+			im.setImageResource(Pickaxe.values()[player.getPickaxe().ordinal() + 1].getFilepath());
+			ImageView imz = (ImageView) findViewById(R.id.Pickaxe);
+			imz.setImageResource(player.getPickaxe().getFilepath());
+			if(!player.pickUpgrade()) {
+				im.setBackgroundColor(getResources().getColor(R.color.red));
+			}
+		}
 	}
 	
 	public void changeView(View v) {
@@ -159,24 +183,33 @@ public class Game extends Activity {
         
         case R.id.buttonVault:
         	findViewById(R.id.includeVault).setVisibility(View.VISIBLE);
+        	findViewById(R.id.includeUpgrades).setVisibility(View.INVISIBLE);
 			break;
 			
         case R.id.buttonMine:
         	findViewById(R.id.includeVault).setVisibility(View.INVISIBLE);
+        	findViewById(R.id.includeUpgrades).setVisibility(View.INVISIBLE);
         	b.setVisibility(View.VISIBLE);
+        	break;
+        case R.id.buttonUpgrades:
+        	findViewById(R.id.includeVault).setVisibility(View.INVISIBLE);
+        	findViewById(R.id.includeUpgrades).setVisibility(View.VISIBLE);
+        	if(player.pickUpgrade()) {
+        		findViewById(R.id.upgImg1).setBackgroundColor(getResources().getColor(R.color.green));
+        	}
         	break;
         }
 	}
 	
 	public void setValues() {
 		TextView tv = (TextView) findViewById(R.id.textViewMaxOres);
-		tv.setText("MaxOres: " + Integer.toString(player.getPickAxe().getMax()));
+		tv.setText("MaxOres: " + Integer.toString(player.getPickaxe().getMax()));
 		tv = (TextView) findViewById(R.id.textViewSharp);	
-		tv.setText("Sharpness: " + Integer.toString(player.getPickAxe().getSharpness()));
+		tv.setText("Sharpness: " + Integer.toString(player.getPickaxe().getSharpness()));
 		tv = (TextView) findViewById(R.id.textViewDrop);	
-		tv.setText("Drop Chance: " + Integer.toString(player.getPickAxe().getDropChance()));
+		tv.setText("Drop Chance: " + Integer.toString(player.getPickaxe().getDropChance()));
 		tv = (TextView) findViewById(R.id.textViewSpeed);	
-		tv.setText("Speed: " + Integer.toString(player.getPickAxe().getSpeed()));
+		tv.setText("Speed: " + Integer.toString(player.getPickaxe().getSpeed()));
 	}
 	
 	public void sellOre(View v) {
@@ -205,9 +238,9 @@ public class Game extends Activity {
 		TextView total = (TextView) findViewById(R.id.txtTotalWorth);
 		total.setText("Total Worth\n$0");
 		
-		player.setMoney(amount + player.getMoney());
+		player.setMoney(BigInteger.valueOf(amount + player.getMoney().intValue()));
 		TextView tv = (TextView) findViewById(R.id.txtMoney);
-		tv.setText(Integer.toString(player.getMoney()));
+		tv.setText("$" + Integer.toString(player.getMoney().intValue()));
 		
 		TextView ztc = (TextView) findViewById(R.id.txtFullVault);
 		ztc.setVisibility(View.INVISIBLE);

@@ -232,7 +232,7 @@
         android:textSize="10dp" />
 
     <TextView
-        android:id="@+id/txtViewLostOres"
+        android:id="@+id/txtLostOres"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/textViewOresMined"

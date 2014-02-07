@@ -118,6 +118,15 @@
         android:layout_below="@+id/buttonMine"
         layout="@layout/mine"
         android:visibility="visible" />
+    
+    <include
+        android:id="@+id/includeUpgrades"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/includeVault"
+        android:layout_below="@+id/buttonMine"
+        layout="@layout/upgrades"
+        android:visibility="invisible" />
 
     <TextView
         android:id="@+id/txtMoney"

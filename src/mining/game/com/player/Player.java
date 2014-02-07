@@ -1,5 +1,6 @@
 package mining.game.com.player;
 
+import java.math.BigInteger;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -10,10 +11,10 @@ public class Player {
 
 	private Map<String, Integer> vault = new HashMap<String, Integer>();
 	private Pickaxe pickaxe = Pickaxe.WOOD;
-	private int money = 0;
+	private BigInteger money = new BigInteger("0");
 	private int vaultSize = 0;
 
-	public Player(Map<String, Integer> map, Pickaxe pickaxe, int money, int vaultSize) {
+	public Player(Map<String, Integer> map, Pickaxe pickaxe, BigInteger money, int vaultSize) {
 		this.vault.putAll(map);
 		this.pickaxe = pickaxe;
 		this.money = money;
@@ -28,15 +29,15 @@ public class Player {
 		this.vault = vault;
 	}
 
-	public void setMoney(int money) {
+	public void setMoney(BigInteger money) {
 		this.money = money;
 	}
 	
-	public Pickaxe getPickAxe() {
+	public Pickaxe getPickaxe() {
 		return pickaxe;
 	}	
 	
-	public int getMoney() {
+	public BigInteger getMoney() {
 		return money;
 	}
 
@@ -58,6 +59,13 @@ public class Player {
     		totalVault += j;
     	}
     	return totalVault;
+	}
+
+	public boolean pickUpgrade() {
+		if(getPickaxe().isUpgradeable() && getMoney().intValue() >= Pickaxe.values()[getPickaxe().ordinal() + 1].getPrice()) {
+			return true;
+		}
+		return false;
 	}
 	
 }

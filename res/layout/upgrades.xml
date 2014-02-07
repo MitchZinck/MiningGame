@@ -3,6 +3,60 @@
     android:layout_height="fill_parent"
     android:padding="6dip" >
 
+    <ImageView
+        android:id="@+id/upgImg1"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:background="@color/red"
+        android:onClick="buyUpgrade1"
+        android:src="@drawable/pickaxestone" />
 
+    <TextView
+        android:id="@+id/upgPrice1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/upgTxtName1"
+        android:layout_below="@+id/upgTxtName1"
+        android:text="$250"
+        android:textSize="10dp" />
+
+    <TextView
+        android:id="@+id/upgTxtName1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/upgImg1"
+        android:layout_marginLeft="5dp"
+        android:layout_toRightOf="@+id/upgImg1"
+        android:text="Stone Pickaxe"
+        android:textSize="10dp" />
+
+    <ImageView
+        android:id="@+id/upgImg2"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/upgImg1"
+        android:background="@color/red"
+        android:src="@drawable/vault" />
+
+    <TextView
+        android:id="@+id/TextView02"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/upgImg2"
+        android:layout_toRightOf="@+id/upgImg2"
+        android:text="Stone Pickaxe"
+        android:textSize="10dp" />
+
+    <TextView
+        android:id="@+id/TextView01"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/TextView02"
+        android:layout_below="@+id/TextView02"
+        android:text="$250"
+        android:textSize="10dp" />
 
 </RelativeLayout>

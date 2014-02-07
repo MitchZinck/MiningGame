@@ -4,11 +4,11 @@ import mining.game.com.R;
 
 public enum Pickaxe {
 	
-	WOOD 			(R.drawable.pickaxewood, "Wood Pickaxe", 7000, 1, 15, 100, 0, true),
-	STONE 			(R.drawable.pickaxestone, "Stone Pickaxe", 4000, 2, 45, 70, 250, true),
-	IRON 			(R.drawable.pickaxeiron, "Iron Pickaxe", 3000, 3, 100, 5, 1250, true),
-	GOLD 			(R.drawable.pickaxegold, "Gold Pickaxe", 2000, 3, 250, 30, 12500, true),
-	DIAMOND			(R.drawable.pickaxediamond, "Diam Pickaxe", 1000, 3, 450, 5, 20000, true),
+	WOOD 			(R.drawable.pickaxewood, "Wood Pickaxe", 700, 1, 15, 100, 0, true),
+	STONE 			(R.drawable.pickaxestone, "Stone Pickaxe", 400, 2, 45, 70, 250, true),
+	IRON 			(R.drawable.pickaxeiron, "Iron Pickaxe", 300, 3, 100, 5, 1250, true),
+	GOLD 			(R.drawable.pickaxegold, "Gold Pickaxe", 200, 3, 250, 30, 12500, true),
+	DIAMOND			(R.drawable.pickaxediamond, "Diam Pickaxe", 100, 3, 450, 5, 20000, true),
 	HEAVENLY 		(R.drawable.pickaxeheavenly, "Heavenly Pickaxe", 1000, 4, 1000, 1, 5000000, true),
 	UNDERWORLD 		(R.drawable.pickaxehell, "Underworld Pickaxe", 1000, 5, 4000, 0, 28000000, false),
 	ENDER 			(R.drawable.pickaxeender, "Ender Pickaxe", 50, 6, 10000, 0, 500000000, false),

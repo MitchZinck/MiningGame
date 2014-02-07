@@ -190,7 +190,7 @@
         android:src="@drawable/endore" />
 
     <TextView
-        android:id="@+id/txtViewLostOres"
+        android:id="@+id/txtLostOres"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
